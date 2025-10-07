@@ -147,7 +147,7 @@ function App() {
         />
         <Route
           path="/register"
-          element={<RegisterForm isDarkMode={darkMode} />}
+          element={<RegisterForm isDarkMode={darkMode} onRegisterSuccess={handleLoginSuccess} />}
         />
 
         {/* Protected Routes */}
@@ -168,6 +168,25 @@ function App() {
             )
           }
         />
+        
+        <Route
+          path="/dashboard"
+          element={
+            isAuthenticated ? (
+              <Workspace
+                graphTitle="My Chart"
+                isDarkMode={darkMode}
+                premier={premier}
+              />
+            ) : (
+              <WelcomeBackForm
+                isDarkMode={darkMode}
+                onLoginSuccess={handleLoginSuccess}
+              />
+            )
+          }
+        />
+
         <Route
           path="/generate"
           element={
@@ -193,7 +212,7 @@ function App() {
         />
         <Route
           path="/settings"
-          element={<MaintenancePage isDarkMode={darkMode} />}
+          element={<MaintenancePage isDarkMode={darkMode} setIsDarkMode={setDarkMode} />}
         />
 
         {/* Special Routes */}

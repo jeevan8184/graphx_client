@@ -509,7 +509,7 @@ const ChartContainer = ({ isDarkMode }) => {
                 : "bg-gray-200 text-gray-900 hover:bg-gray-300"
             }`}
           >
-            Home
+            Back
           </button>
 
           <div className="flex gap-2">
